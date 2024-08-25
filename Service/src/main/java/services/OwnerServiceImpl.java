@@ -4,7 +4,6 @@ import DAO.KittyDao;
 import DAO.OwnerDao;
 import dto.KittyDto;
 import dto.OwnerDto;
-import entities.Breed;
 import entities.Kitty;
 import entities.Owner;
 import exceptions.OwnerException;
