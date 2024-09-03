@@ -1,3 +1,6 @@
+package Controllers;
+
+import Controllers.KittyController;
 import dto.KittyDto;
 import services.KittyServiceImpl;
 

@@ -1,8 +1,8 @@
-package DAO;
+package org.ISKor.DAO;
 
-import entities.Breed;
-import entities.Color;
-import entities.Kitty;
+import org.ISKor.entities.Kitty;
+import org.ISKor.entities.Breed;
+import org.ISKor.entities.Color;
 
 import java.util.List;
 

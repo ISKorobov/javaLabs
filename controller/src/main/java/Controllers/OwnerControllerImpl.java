@@ -1,3 +1,6 @@
+package Controllers;
+
+import Controllers.OwnerController;
 import dto.KittyDto;
 import dto.OwnerDto;
 import services.OwnerServiceImpl;
@@ -5,7 +8,7 @@ import services.OwnerServiceImpl;
 import java.time.LocalDate;
 import java.util.List;
 
-public class OwnerControllerImpl implements OwnerController{
+public class OwnerControllerImpl implements OwnerController {
     private final OwnerServiceImpl ownerService;
 
     public OwnerControllerImpl(OwnerServiceImpl ownerService) {

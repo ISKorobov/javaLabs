@@ -1,4 +1,4 @@
-package entities;
+package org.ISKor.entities;
 
 public enum Color {
     BLACK,

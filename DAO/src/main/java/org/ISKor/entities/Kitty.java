@@ -1,4 +1,4 @@
-package entities;
+package org.ISKor.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;

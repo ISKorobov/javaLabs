@@ -21,7 +21,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import static org.mockito.Mockito.*;
 
-class KittyServiceImplTest {
+class KittyTest {
     @Mock
     private KittyDao kittyDao;
 

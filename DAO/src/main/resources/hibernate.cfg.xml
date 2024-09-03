@@ -20,7 +20,7 @@
         <!-- Update database on startup -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
-        <mapping class="entities.Owner"/>
-        <mapping class="entities.Kitty"/>
+        <mapping class="org.ISKor.entities.Owner"/>
+        <mapping class="org.ISKor.entities.Kitty"/>
     </session-factory>
 </hibernate-configuration>

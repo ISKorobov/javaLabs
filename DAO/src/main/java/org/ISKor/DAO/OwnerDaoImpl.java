@@ -1,7 +1,7 @@
-package DAO;
+package org.ISKor.DAO;
 
-import entities.Kitty;
-import entities.Owner;
+import org.ISKor.entities.Kitty;
+import org.ISKor.entities.Owner;
 import sessionFactory.HibernateUtil;
 import jakarta.persistence.Query;
 import org.hibernate.Session;

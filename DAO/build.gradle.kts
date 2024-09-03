@@ -1,8 +1,10 @@
 plugins {
-    id("java")
+    id("java-library")
+    id("org.springframework.boot") version "3.2.4" apply false
 }
+apply(plugin = "io.spring.dependency-management")
 
-group = "org.example"
+group = "org.ISKor"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -19,6 +21,10 @@ dependencies {
     implementation("org.hibernate:hibernate-core:6.1.7.Final")
     implementation("org.postgresql:postgresql:42.5.4")
     testImplementation("com.h2database:h2:1.3.148")
+
+    api("org.springframework.boot:spring-boot-starter:3.2.4")
+    api("org.springframework.boot:spring-boot-starter-data-jpa:3.2.4")
+    api("org.springframework.boot:spring-boot-starter-validation:3.2.4")
 }
 
 tasks.getByName<Test>("test") {

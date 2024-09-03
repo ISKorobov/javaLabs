@@ -15,4 +15,5 @@ public interface KittyService {
     void removeKitty(int id);
     List<KittyDto> findKittiesByBreed(String breedName);
     List<KittyDto> findKittiesByColor(String colorName);
+    List<KittyDto> findKittiesByColorAndBreed(String colorName, String breedName);
 }

@@ -1,7 +1,7 @@
-package DAO;
+package org.ISKor.DAO;
 
-import entities.Kitty;
-import entities.Owner;
+import org.ISKor.entities.Kitty;
+import org.ISKor.entities.Owner;
 
 import java.util.List;
 
