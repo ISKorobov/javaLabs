@@ -1,12 +1,14 @@
-import DAO.KittyDao;
-import DAO.OwnerDao;
+import org.ISKor.DAO.KittyDao;
+import org.ISKor.DAO.OwnerDao;
 import dto.KittyDto;
-import entities.Breed;
-import entities.Color;
-import entities.Kitty;
-import entities.Owner;
+import org.ISKor.entities.Breed;
+import org.ISKor.entities.Color;
+import org.ISKor.entities.Kitty;
+import org.ISKor.entities.Owner;
 import exceptions.KittyException;
 import exceptions.OwnerException;
+import org.ISKor.repositories.KittyRepository;
+import org.ISKor.repositories.OwnerRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,10 +25,10 @@ import static org.mockito.Mockito.*;
 
 class KittyTest {
     @Mock
-    private KittyDao kittyDao;
+    private KittyRepository kittyDao;
 
     @Mock
-    private OwnerDao ownerDAO;
+    private OwnerRepository ownerDAO;
 
     @InjectMocks
     private KittyServiceImpl kittyService;
@@ -41,35 +43,35 @@ class KittyTest {
 
     @Test
     void createOwner() throws KittyException, OwnerException {
-        doNothing().when(ownerDAO).add(any(Owner.class));
+        doNothing().when(ownerDAO).save(any(Owner.class));
 
         ownerService.createOwner("Vanya", LocalDate.of(2003, 10, 15));
 
-        verify(ownerDAO).add(any(Owner.class));
+        verify(ownerDAO).save(any(Owner.class));
     }
 
     @Test
     void createCat() throws KittyException, OwnerException {
-        doNothing().when(kittyDao).add(any(Kitty.class));
+        doNothing().when(kittyDao).save(any(Kitty.class));
 
         Owner owner = new Owner("Vanya", LocalDate.of(2003, 10, 15), new ArrayList<>());
         when(ownerDAO.getById(1)).thenReturn(owner);
         KittyDto testKitty = kittyService.createKitty("Kitty", LocalDate.of(2020, 1,1), "SPHYNX", "ORANGE", 1);;
 
-        verify(kittyDao).add(any(Kitty.class));
+        verify(kittyDao).save(any(Kitty.class));
         verify(ownerDAO).getById(1);
     }
 
     @Test
     void createCatAndCheckConnectedToOwner() throws KittyException, OwnerException {
-        doNothing().when(kittyDao).add(any(Kitty.class));
+        doNothing().when(kittyDao).save(any(Kitty.class));
 
         Owner owner = new Owner("Vanya", LocalDate.of(2003, 10, 15), new ArrayList<>());
         owner.setId(1);
         when(ownerDAO.getById(1)).thenReturn(owner);
         KittyDto testKitty = kittyService.createKitty("Kitty", LocalDate.of(2020, 1,1), "SPHYNX", "ORANGE", 1);
 
-        verify(kittyDao).add(any(Kitty.class));
+        verify(kittyDao).save(any(Kitty.class));
         verify(ownerDAO).getById(1);
         Assertions.assertEquals(1, owner.getKitties().size());
         Assertions.assertEquals(owner.getKitties().get(0).getId(), testKitty.id());
@@ -78,7 +80,7 @@ class KittyTest {
 
     @Test
     void addFriendsForCatAndCheckAllFriendsWasAdded() throws KittyException, OwnerException {
-        doNothing().when(kittyDao).update(any(Kitty.class));
+        doNothing().when(kittyDao).save(any(Kitty.class));
 
         Owner owner = new Owner("Vanya", LocalDate.of(2003, 10, 15), new ArrayList<>());
         Kitty kitty1 = new Kitty("Kot", LocalDate.of(2020, 1, 1), Breed.SIAMESE, Color.BLACK, owner, new ArrayList<>());
@@ -108,7 +110,7 @@ class KittyTest {
 
     @Test
     void unfriendFriendsForCatAndCheckAllFriendsWasAdded() throws KittyException, OwnerException {
-        doNothing().when(kittyDao).update(any(Kitty.class));
+        doNothing().when(kittyDao).save(any(Kitty.class));
 
         Owner owner = new Owner("Vanya", LocalDate.of(2003, 10, 15), new ArrayList<>());
         Kitty kitty1 = new Kitty("Kitty1", LocalDate.of(2020, 1, 1), Breed.MAINE_COON, Color.GRAY, owner, new ArrayList<>());
@@ -135,8 +137,8 @@ class KittyTest {
 
     @Test
     void addOwnerForCatAndOwnerShouldAdd() throws KittyException, OwnerException {
-        doNothing().when(kittyDao).update(any(Kitty.class));
-        doNothing().when(ownerDAO).update(any(Owner.class));
+        doNothing().when(kittyDao).save(any(Kitty.class));
+        doNothing().when(ownerDAO).save(any(Owner.class));
 
         Owner owner1 = new Owner("Vanya", LocalDate.of(2003, 10, 15), new ArrayList<>());
         Owner owner2 = new Owner("Kirill", LocalDate.of(2001, 1, 1), new ArrayList<>());

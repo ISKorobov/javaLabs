@@ -1,8 +1,8 @@
 package mappers;
 
 import dto.OwnerDto;
-import entities.Kitty;
-import entities.Owner;
+import org.ISKor.entities.Kitty;
+import org.ISKor.entities.Owner;
 import lombok.experimental.UtilityClass;
 
 import java.util.List;

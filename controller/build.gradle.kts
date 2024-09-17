@@ -12,6 +12,7 @@ repositories {
 }
 
 dependencies {
+    implementation(project(mapOf("path" to ":Service")))
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
 
@@ -25,6 +26,7 @@ dependencies {
     api("org.springframework.boot:spring-boot-starter:3.2.4")
     api("org.springframework.boot:spring-boot-starter-data-jpa:3.2.4")
     api("org.springframework.boot:spring-boot-starter-validation:3.2.4")
+    implementation("org.springframework.boot:spring-boot-starter-web:3.2.4")
 }
 
 tasks.getByName<Test>("test") {

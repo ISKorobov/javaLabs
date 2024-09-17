@@ -1,20 +1,20 @@
 package services;
 
-import DAO.KittyDao;
-import DAO.OwnerDao;
+import org.ISKor.DAO.OwnerDao;
+import org.ISKor.DAO.KittyDao;
 import dto.KittyDto;
 import dto.OwnerDto;
-import entities.Breed;
-import entities.Color;
-import entities.Kitty;
-import entities.Owner;
+import org.ISKor.entities.Breed;
+import org.ISKor.entities.Color;
+import org.ISKor.entities.Kitty;
+import org.ISKor.entities.Owner;
 import exceptions.KittyException;
 import exceptions.OwnerException;
 import lombok.experimental.ExtensionMethod;
 import mappers.KittyMapper;
 import mappers.OwnerMapper;
-import repositories.KittyRepository;
-import repositories.OwnerRepository;
+import org.ISKor.repositories.KittyRepository;
+import org.ISKor.repositories.OwnerRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

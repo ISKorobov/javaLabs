@@ -1,10 +1,10 @@
 package mappers;
 
 import dto.KittyDto;
-import entities.Breed;
-import entities.Color;
-import entities.Kitty;
-import entities.Owner;
+import org.ISKor.entities.Breed;
+import org.ISKor.entities.Color;
+import org.ISKor.entities.Kitty;
+import org.ISKor.entities.Owner;
 import lombok.experimental.UtilityClass;
 
 import java.util.List;

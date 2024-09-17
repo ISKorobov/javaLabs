@@ -1,20 +1,22 @@
 package services;
 
 import dto.KittyDto;
-import entities.Breed;
-import entities.Color;
-import entities.Kitty;
+import org.ISKor.entities.Breed;
+import org.ISKor.entities.Color;
+import org.ISKor.entities.Kitty;
 import exceptions.KittyException;
 import lombok.experimental.ExtensionMethod;
 import mappers.KittyMapper;
-import repositories.KittyRepository;
-import repositories.OwnerRepository;
+import org.ISKor.repositories.KittyRepository;
+import org.ISKor.repositories.OwnerRepository;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Service
 @ExtensionMethod(KittyMapper.class)
 public class KittyServiceImpl implements KittyService {
     private final KittyRepository kittyRepository;

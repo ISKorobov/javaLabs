@@ -3,45 +3,47 @@ package Controllers;
 import Controllers.OwnerController;
 import dto.KittyDto;
 import dto.OwnerDto;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import services.OwnerServiceImpl;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class OwnerControllerImpl implements OwnerController {
-    private final OwnerServiceImpl ownerService;
+@RestController
+@RequestMapping("/owners/")
+public class OwnerControllerImpl {
+    private final OwnerServiceImpl ownerServiceImpl;
 
-    public OwnerControllerImpl(OwnerServiceImpl ownerService) {
-        this.ownerService = ownerService;
+    @Autowired
+    public OwnerControllerImpl(OwnerServiceImpl ownerServiceImpl) {
+        this.ownerServiceImpl = ownerServiceImpl;
     }
 
-    @Override
-    public OwnerDto createOwner(String name, LocalDate birthDate) {
-        return ownerService.createOwner(name, birthDate);
+    @PostMapping()
+    public OwnerDto createOwner(@Valid @RequestBody OwnerStartDto ownerDto) {
+        return ownerServiceImpl.createOwner(ownerDto.name(), ownerDto.birthDate());
     }
 
-    @Override
-    public void addKitty(int ownerId, int kittyId) {
-        ownerService.addKitty(ownerId, kittyId);
+    @GetMapping("{id}")
+    public OwnerDto getOwnerById(@PathVariable int id) {
+        return ownerServiceImpl.getOwnerById(id);
     }
 
-    @Override
-    public OwnerDto getOwnerById(int id) {
-        return ownerService.getOwnerById(id);
+    @GetMapping("kitties/{id}")
+    public List<KittyDto> findAllKitties(@PathVariable int id) {
+        return ownerServiceImpl.findAllKitties(id);
     }
 
-    @Override
-    public List<KittyDto> findAllKitties(int id) {
-        return ownerService.findAllKitties(id);
-    }
-
-    @Override
+    @GetMapping()
     public List<OwnerDto> findAllOwners() {
-        return ownerService.findAllOwners();
+        return ownerServiceImpl.findAllOwners();
     }
 
-    @Override
-    public void removeOwner(int id) {
-        ownerService.removeOwner(id);
+    @DeleteMapping("{id}")
+    public String removeOwner(@PathVariable int id) {
+        ownerServiceImpl.removeOwner(id);
+        return "Owner with id " + id + " was deleted";
     }
 }

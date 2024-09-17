@@ -12,6 +12,7 @@ repositories {
 }
 
 dependencies {
+    implementation(project(mapOf("path" to ":DAO")))
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
     implementation("org.projectlombok:lombok:1.18.22")
