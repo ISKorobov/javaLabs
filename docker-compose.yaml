@@ -1,0 +1,41 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: kitty_postgres_db
+    restart: always
+    environment:
+      POSTGRES_DB: kittydb
+      POSTGRES_USER: kittyuser
+      POSTGRES_PASSWORD: kittypass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - kitty-network
+
+  app:
+    build:
+      context: .
+    container_name: kitty_app
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/kittydb
+      SPRING_DATASOURCE_USERNAME: kittyuser
+      SPRING_DATASOURCE_PASSWORD: kittypass
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    working_dir: /app
+    networks:
+      - kitty-network
+
+
+volumes:
+  postgres_data:
+
+networks:
+  kitty-network:
