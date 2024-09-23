@@ -1,14 +1,12 @@
-import org.ISKor.DAO.KittyDao;
-import org.ISKor.DAO.OwnerDao;
-import dto.KittyDto;
-import org.ISKor.entities.Breed;
-import org.ISKor.entities.Color;
-import org.ISKor.entities.Kitty;
-import org.ISKor.entities.Owner;
-import exceptions.KittyException;
-import exceptions.OwnerException;
-import org.ISKor.repositories.KittyRepository;
-import org.ISKor.repositories.OwnerRepository;
+import org.ISKor.controller.dto.KittyDto;
+import org.ISKor.controller.entities.Breed;
+import org.ISKor.controller.entities.Color;
+import org.ISKor.controller.entities.Kitty;
+import org.ISKor.controller.entities.Owner;
+import org.ISKor.controller.exceptions.KittyException;
+import org.ISKor.controller.exceptions.OwnerException;
+import org.ISKor.controller.repositories.KittyRepository;
+import org.ISKor.controller.repositories.OwnerRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,8 +14,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import org.mockito.MockitoAnnotations;
-import services.KittyServiceImpl;
-import services.OwnerServiceImpl;
+import org.ISKor.controller.services.KittyServiceImpl;
+import org.ISKor.controller.services.OwnerServiceImpl;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

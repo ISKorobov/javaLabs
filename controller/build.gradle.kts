@@ -1,6 +1,6 @@
 plugins {
     id("java-library")
-    id("org.springframework.boot") version "3.2.4" apply false
+    id("org.springframework.boot") version "3.2.4"
 }
 
 apply(plugin = "io.spring.dependency-management")
@@ -26,7 +26,10 @@ dependencies {
     api("org.springframework.boot:spring-boot-starter:3.2.4")
     api("org.springframework.boot:spring-boot-starter-data-jpa:3.2.4")
     api("org.springframework.boot:spring-boot-starter-validation:3.2.4")
+    implementation("org.springframework.security:spring-security-crypto")
+    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web:3.2.4")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 }
 
 tasks.getByName<Test>("test") {

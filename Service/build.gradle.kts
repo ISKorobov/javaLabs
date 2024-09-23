@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("org.springframework.boot") version "3.2.4" apply false
+    id("org.springframework.boot") version "3.2.4"
 }
 apply(plugin = "io.spring.dependency-management")
 
@@ -18,6 +18,8 @@ dependencies {
     implementation("org.projectlombok:lombok:1.18.22")
     annotationProcessor("org.projectlombok:lombok:1.18.26")
     implementation("org.hibernate:hibernate-core:6.1.7.Final")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.security:spring-security-crypto")
     testImplementation("com.h2database:h2:1.3.148")
 
     testImplementation("org.mockito:mockito-core:5.5.0")
