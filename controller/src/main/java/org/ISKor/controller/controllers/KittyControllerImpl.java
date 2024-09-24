@@ -1,9 +1,9 @@
 package org.ISKor.controller.controllers;
 
+import jakarta.validation.constraints.NotBlank;
 import org.ISKor.controller.startDto.KittyStartDto;
 import org.ISKor.controller.dto.KittyDto;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +24,7 @@ public class KittyControllerImpl implements KittyController {
         this.kittyServiceImpl = kittyServiceImpl;
     }
 
+    @Override
     @PostMapping()
     public KittyDto createKitty(@Valid @RequestBody KittyStartDto kittyDto) {
         return kittyServiceImpl.createKitty(kittyDto.name(), kittyDto.birthDate(), kittyDto.breed(), kittyDto.colour(), kittyDto.ownerId());
@@ -76,7 +77,7 @@ public class KittyControllerImpl implements KittyController {
     }
 
     @GetMapping("get")
-    public List<KittyDto> findKittyByBreed(@NotBlank(message = "Breed should not be blank") @RequestParam(name = "breed") String breed, @RequestParam(name = "color", defaultValue = "empty") @NotBlank(message = "Color should not be blank") String color) {
+    public List<KittyDto> findKittiesByColorAndBreed(@NotBlank(message = "Breed should not be blank") @RequestParam(name = "breed") String breed, @RequestParam(name = "color", defaultValue = "empty") @NotBlank(message = "Color should not be blank") String color) {
         if (breed.equals("empty")) {
             return kittyServiceImpl.findKittiesByBreed(breed);
         } else if (color.equals("empty")) {

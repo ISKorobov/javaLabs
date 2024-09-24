@@ -1,7 +1,7 @@
 package org.ISKor.controller.controllers;
 
-import org.ISKor.controller.startDto.KittyStartDto;
 import org.ISKor.controller.dto.KittyDto;
+import org.ISKor.controller.startDto.KittyStartDto;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -14,6 +14,7 @@ public interface KittyController {
     String removeKitty(int id);
     List<KittyDto> findKittyByBreed(String breed);
     List<KittyDto> findKittiesByColor(String color);
+    List<KittyDto> findKittiesByColorAndBreed(String color, String breedName);
     String makeFriends(int kittyId1, int kittyId2);
     String unfriendKitties(int kittyId1, int kittyId2);
 }

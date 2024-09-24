@@ -1,5 +1,6 @@
 package org.ISKor.controller.services;
 
+import lombok.experimental.ExtensionMethod;
 import org.ISKor.controller.dto.UserDto;
 import org.ISKor.controller.entities.Owner;
 import org.ISKor.controller.entities.Role;
@@ -15,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.util.Objects;
 
 @Service
+@ExtensionMethod(UserMapper.class)
 public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
     private final OwnerRepository ownerRepository;
@@ -46,9 +48,8 @@ public class UserServiceImpl implements UserService{
             throw UserException.noRole(roleName);
         }
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        User tmp = new User(username, encoder.encode(password), role, owner);
-        userRepository.save(tmp);
-        UserMapper Mapper = new UserMapper();
-        return Mapper.castDto(tmp);
+        User user = new User(username, encoder.encode(password), role, owner);
+        userRepository.save(user);
+        return user.asDto();
     }
 }

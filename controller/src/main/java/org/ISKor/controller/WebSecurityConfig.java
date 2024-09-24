@@ -35,6 +35,7 @@ public class WebSecurityConfig {
                         .requestMatchers(HttpMethod.DELETE).hasAuthority("ADMIN")
                         .requestMatchers(HttpMethod.POST).hasAuthority("ADMIN")
                         .requestMatchers("/owners/**").hasAuthority("ADMIN")
+                        .requestMatchers("/users").hasAuthority("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll

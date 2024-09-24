@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user/")
+@RequestMapping("/users/")
 public class UserControllerImpl implements UserController{
     private final UserServiceImpl userService;
 
@@ -20,8 +20,8 @@ public class UserControllerImpl implements UserController{
         this.userService = userService;
     }
 
-    @PostMapping()
     @Override
+    @PostMapping()
     public UserDto createUser(@Valid @RequestBody UserStartDto userDto) {
         return userService.createUser(userDto.username(), userDto.password(), userDto.roleName(), userDto.ownerId());
     }
