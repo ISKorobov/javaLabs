@@ -12,6 +12,7 @@ public interface KittyController {
     String removeKitty(int id);
     List<KittyDto> findKittyByBreed(String breed);
     List<KittyDto> findKittiesByColor(String color);
+    List<KittyDto> getCatsByColourAndBreed(String color, String breedName);
     String makeFriends(int kittyId1, int kittyId2);
     String unfriendKitties(int kittyId1, int kittyId2);
 }
