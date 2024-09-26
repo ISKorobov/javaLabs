@@ -12,7 +12,9 @@
             <option value="$PROJECT_DIR$/DAO" />
             <option value="$PROJECT_DIR$/Service" />
             <option value="$PROJECT_DIR$/controller" />
+            <option value="$PROJECT_DIR$/kitties" />
             <option value="$PROJECT_DIR$/lab2" />
+            <option value="$PROJECT_DIR$/owners" />
           </set>
         </option>
       </GradleProjectSettings>

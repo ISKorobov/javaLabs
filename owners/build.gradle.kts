@@ -21,8 +21,8 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.26")
 
     implementation("org.hibernate:hibernate-core:6.1.7.Final")
-    implementation("org.postgresql:postgresql:42.5.4")
-    testImplementation("com.h2database:h2:1.3.148")
+    implementation("org.postgresql:postgresql:42.7.2")
+    testImplementation("com.h2database:h2:2.2.220")
 
     api("org.springframework.boot:spring-boot-starter:3.2.4")
     api("org.springframework.boot:spring-boot-starter-data-jpa:3.2.4")
@@ -31,7 +31,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web:3.2.4")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.kafka:spring-kafka:3.0.10")
+    implementation("org.springframework.kafka:spring-kafka:3.0.5")
 }
 
 tasks.getByName<Test>("test") {

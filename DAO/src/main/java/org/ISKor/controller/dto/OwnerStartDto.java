@@ -1,5 +1,4 @@
-package org.ISKor.controller.startDto;
-
+package org.ISKor.controller.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;
